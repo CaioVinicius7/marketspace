@@ -1,4 +1,6 @@
-import { VStack, Text, Center, Input, Button, ScrollView } from "native-base";
+import { VStack, Text, Center, Input, ScrollView } from "native-base";
+
+import { Button } from "@components/Button";
 
 import LogoWithSloganSvg from "@assets/logoWithSlogan.svg";
 
@@ -46,38 +48,14 @@ export function SignIn() {
 						secureTextEntry
 					/>
 
-					<Button
-						w="full"
-						bgColor="blue.400"
-						h={12}
-						mt={8}
-						_pressed={{
-							bgColor: "blue.700"
-						}}
-					>
-						<Text fontFamily="heading" color="gray.100">
-							Entrar
-						</Text>
-					</Button>
+					<Button title="Entrar" mt={8} />
 				</Center>
 			</VStack>
 
 			<Center mt={12} pb={6} px={12}>
 				<Text>Ainda não tem acesso?</Text>
 
-				<Button
-					w="full"
-					bgColor="gray.300"
-					h={12}
-					mt={4}
-					_pressed={{
-						bgColor: "gray.400"
-					}}
-				>
-					<Text fontFamily="heading" color="gray.600">
-						Criar uma conta
-					</Text>
-				</Button>
+				<Button title="Criar uma conta" variant="secondary" mt={4} />
 			</Center>
 		</ScrollView>
 	);
