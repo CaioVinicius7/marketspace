@@ -1,9 +1,11 @@
-import { NativeBaseProvider, Center, Spinner } from "native-base";
+import { NativeBaseProvider, Center } from "native-base";
 import {
 	useFonts,
 	Karla_400Regular,
 	Karla_700Bold
 } from "@expo-google-fonts/karla";
+
+import { Loading } from "@components/Loading";
 
 import { THEME } from "./src/theme";
 
@@ -15,7 +17,7 @@ export default function App() {
 
 	return (
 		<NativeBaseProvider theme={THEME}>
-			{fontsLoaded ? <Center flex={1}>Marketspace</Center> : <Spinner />}
+			{fontsLoaded ? <Center flex={1}>Marketspace</Center> : <Loading />}
 		</NativeBaseProvider>
 	);
 }
