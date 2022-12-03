@@ -1,5 +1,5 @@
 import { StatusBar } from "react-native";
-import { NativeBaseProvider, Center } from "native-base";
+import { NativeBaseProvider } from "native-base";
 import {
 	useFonts,
 	Karla_400Regular,
