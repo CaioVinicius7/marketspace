@@ -6,6 +6,8 @@ import {
 	Karla_700Bold
 } from "@expo-google-fonts/karla";
 
+import { Routes } from "@routes/index";
+
 import { Loading } from "@components/Loading";
 
 import { THEME } from "./src/theme";
@@ -24,7 +26,7 @@ export default function App() {
 				translucent
 			/>
 
-			{fontsLoaded ? <Center flex={1}>Marketspace</Center> : <Loading />}
+			{fontsLoaded ? <Routes /> : <Loading />}
 		</NativeBaseProvider>
 	);
 }
