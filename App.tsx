@@ -1,3 +1,4 @@
+import { StatusBar } from "react-native";
 import { NativeBaseProvider, Center } from "native-base";
 import {
 	useFonts,
@@ -17,6 +18,12 @@ export default function App() {
 
 	return (
 		<NativeBaseProvider theme={THEME}>
+			<StatusBar
+				barStyle="dark-content"
+				backgroundColor="transparent"
+				translucent
+			/>
+
 			{fontsLoaded ? <Center flex={1}>Marketspace</Center> : <Loading />}
 		</NativeBaseProvider>
 	);
