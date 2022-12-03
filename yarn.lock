@@ -1051,6 +1051,11 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
+"@expo-google-fonts/karla@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/karla/-/karla-0.2.2.tgz#a418d44d0b1e30ea3891caa60ffe39460a4fe076"
+  integrity sha512-MPKYN8K83sSqAvkawZ2ylrd3tyFQwhSk0LTCDiQAkUJGWDXo+y1PBf1LM8b48zT87V7ne5AsEjHOWAIbpV6MOQ==
+
 "@expo/bunyan@4.0.0", "@expo/bunyan@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@expo/bunyan/-/bunyan-4.0.0.tgz#be0c1de943c7987a9fbd309ea0b1acd605890c7b"
