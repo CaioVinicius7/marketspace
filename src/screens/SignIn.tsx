@@ -1,6 +1,7 @@
-import { VStack, Text, Center, Input, ScrollView } from "native-base";
+import { VStack, Text, Center, ScrollView } from "native-base";
 
 import { Button } from "@components/Button";
+import { Input } from "@components/Input";
 
 import LogoWithSloganSvg from "@assets/logoWithSlogan.svg";
 
@@ -22,31 +23,9 @@ export function SignIn() {
 				<Center>
 					<Text color="gray.600"> Acesse sua conta </Text>
 
-					<Input
-						px={4}
-						h={12}
-						fontSize="md"
-						bgColor="gray.100"
-						borderWidth="0"
-						rounded="md"
-						color="gray.600"
-						placeholder="E-mail"
-						mt={4}
-						keyboardType="email-address"
-					/>
+					<Input mt={4} placeholder="E-mail" keyboardType="email-address" />
 
-					<Input
-						px={4}
-						h={12}
-						fontSize="md"
-						bgColor="gray.100"
-						borderWidth="0"
-						rounded="md"
-						color="gray.600"
-						placeholder="Senha"
-						mt={4}
-						secureTextEntry
-					/>
+					<Input mt={4} placeholder="Senha" passwordInput />
 
 					<Button title="Entrar" mt={8} />
 				</Center>
