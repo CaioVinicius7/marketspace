@@ -3,10 +3,14 @@ import { useNavigation } from "@react-navigation/native";
 
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
+import { Avatar } from "@components/Avatar";
 
 import { AuthNavigatorRoutesProps } from "@routes/auth.routes";
 
 import LogoSvg from "@assets/logo.svg";
+import defaultUserPhotoImage from "@assets/userPhotoDefault.png";
+
+const PHOTO_SIZE = 100;
 
 export function SignUp() {
 	const navigation = useNavigation<AuthNavigatorRoutesProps>();
@@ -32,7 +36,9 @@ export function SignUp() {
 				</Center>
 
 				<Center mt={6}>
-					<Input placeholder="Nome" />
+					<Avatar source={defaultUserPhotoImage} size={PHOTO_SIZE} editAvatar />
+
+					<Input placeholder="Nome" mt={6} />
 					<Input placeholder="E-mail" keyboardType="email-address" mt={6} />
 					<Input placeholder="Telefone" keyboardType="phone-pad" mt={6} />
 					<Input placeholder="Senha" passwordInput mt={6} />
