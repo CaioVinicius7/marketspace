@@ -1,5 +1,15 @@
-import { Center, Text, ScrollView, VStack, Heading } from "native-base";
+import { useState } from "react";
+import {
+	Center,
+	Text,
+	ScrollView,
+	VStack,
+	Heading,
+	useToast
+} from "native-base";
 import { useNavigation } from "@react-navigation/native";
+import * as ImagePicker from "expo-image-picker";
+import * as FileSystem from "expo-file-system";
 
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
@@ -13,10 +23,58 @@ import defaultUserPhotoImage from "@assets/userPhotoDefault.png";
 const PHOTO_SIZE = 100;
 
 export function SignUp() {
+	const [userPhoto, setUserPhoto] = useState("");
+	const toast = useToast();
+
 	const navigation = useNavigation<AuthNavigatorRoutesProps>();
 
 	function handleGoBack() {
 		navigation.goBack();
+	}
+
+	async function handleUserPhotoSelect() {
+		try {
+			const photoSelected = await ImagePicker.launchImageLibraryAsync({
+				mediaTypes: ImagePicker.MediaTypeOptions.Images,
+				quality: 1,
+				aspect: [4, 4],
+				allowsEditing: true,
+				selectionLimit: 1
+			});
+
+			if (photoSelected.canceled) {
+				return;
+			}
+
+			if (photoSelected.assets[0].uri) {
+				const photoInfo = await FileSystem.getInfoAsync(
+					photoSelected.assets[0].uri
+				);
+
+				if (photoInfo.size && photoInfo.size / 1024 / 1024 > 3) {
+					return toast.show({
+						title: "Essa imagem é muito grande. Escolha uma de até 3MB.",
+						placement: "bottom",
+						bgColor: "red.500"
+					});
+				}
+
+				setUserPhoto(photoSelected.assets[0].uri);
+
+				toast.show({
+					title: "Foto atualizada!",
+					placement: "top",
+					bgColor: "green.500"
+				});
+			}
+		} catch (error) {
+			toast.show({
+				title:
+					"Ocorreu um erro ao atualizar a imagem. Tente novamente mais tarde.",
+				placement: "top",
+				bgColor: "red.500"
+			});
+		}
 	}
 
 	return (
@@ -36,7 +94,12 @@ export function SignUp() {
 				</Center>
 
 				<Center mt={6}>
-					<Avatar source={defaultUserPhotoImage} size={PHOTO_SIZE} editAvatar />
+					<Avatar
+						source={userPhoto ? { uri: userPhoto } : defaultUserPhotoImage}
+						size={PHOTO_SIZE}
+						onPress={handleUserPhotoSelect}
+						editAvatar
+					/>
 
 					<Input placeholder="Nome" mt={6} />
 					<Input placeholder="E-mail" keyboardType="email-address" mt={6} />

@@ -1,12 +1,13 @@
-import { Image, IImageProps, Box, Center, useTheme } from "native-base";
+import { Image, IImageProps, Button, Center, useTheme } from "native-base";
 import { PencilSimpleLine } from "phosphor-react-native";
 
 interface AvatarProps extends IImageProps {
 	size: number;
 	editAvatar?: boolean;
+	onPress?: () => void;
 }
 
-export function Avatar({ size, editAvatar, ...props }: AvatarProps) {
+export function Avatar({ size, editAvatar, onPress, ...props }: AvatarProps) {
 	const editButtonSize = size / 2.2;
 
 	const { colors } = useTheme();
@@ -15,7 +16,7 @@ export function Avatar({ size, editAvatar, ...props }: AvatarProps) {
 	const iconSize = size / 5;
 
 	return (
-		<Box position="relative">
+		<Button variant="unstyled" position="relative" onPress={onPress}>
 			<Image
 				w={size}
 				h={size}
@@ -39,6 +40,6 @@ export function Avatar({ size, editAvatar, ...props }: AvatarProps) {
 					<PencilSimpleLine color={iconColor} size={iconSize} />
 				</Center>
 			)}
-		</Box>
+		</Button>
 	);
 }
