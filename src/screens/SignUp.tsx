@@ -78,49 +78,51 @@ export function SignUp() {
 	}
 
 	return (
-		<ScrollView flex={1}>
-			<VStack py={9} px={12} safeArea>
-				<Center>
-					<LogoSvg />
+		<VStack flex={1} safeArea>
+			<ScrollView>
+				<VStack py={9} px={12}>
+					<Center>
+						<LogoSvg />
 
-					<Heading mt={3} fontSize="xl">
-						Boas vindas!
-					</Heading>
+						<Heading mt={3} fontSize="xl">
+							Boas vindas!
+						</Heading>
 
-					<Text mt={3} textAlign="center" color="gray.600">
-						Crie sua conta e use o espaço para comprar {"\n"} itens variados e
-						vender seus produtos
-					</Text>
-				</Center>
+						<Text mt={3} textAlign="center" color="gray.600">
+							Crie sua conta e use o espaço para comprar {"\n"} itens variados e
+							vender seus produtos
+						</Text>
+					</Center>
 
-				<Center mt={6}>
-					<Avatar
-						source={userPhoto ? { uri: userPhoto } : defaultUserPhotoImage}
-						size={PHOTO_SIZE}
-						onPress={handleUserPhotoSelect}
-						editAvatar
-					/>
+					<Center mt={6}>
+						<Avatar
+							source={userPhoto ? { uri: userPhoto } : defaultUserPhotoImage}
+							size={PHOTO_SIZE}
+							onPress={handleUserPhotoSelect}
+							editAvatar
+						/>
 
-					<Input placeholder="Nome" mt={6} />
-					<Input placeholder="E-mail" keyboardType="email-address" mt={6} />
-					<Input placeholder="Telefone" keyboardType="phone-pad" mt={6} />
-					<Input placeholder="Senha" passwordInput mt={6} />
-					<Input placeholder="Confirmar senha" passwordInput mt={6} />
+						<Input placeholder="Nome" mt={6} />
+						<Input placeholder="E-mail" keyboardType="email-address" mt={6} />
+						<Input placeholder="Telefone" keyboardType="phone-pad" mt={6} />
+						<Input placeholder="Senha" passwordInput mt={6} />
+						<Input placeholder="Confirmar senha" passwordInput mt={6} />
 
-					<Button title="Criar" variant="tertiary" mt={6} />
-				</Center>
+						<Button title="Criar" variant="tertiary" mt={6} />
+					</Center>
 
-				<Center mt={12}>
-					<Text>Já tem uma conta?</Text>
+					<Center mt={12}>
+						<Text>Já tem uma conta?</Text>
 
-					<Button
-						title="Ir para o login"
-						variant="secondary"
-						mt={4}
-						onPress={handleGoBack}
-					/>
-				</Center>
-			</VStack>
-		</ScrollView>
+						<Button
+							title="Ir para o login"
+							variant="secondary"
+							mt={4}
+							onPress={handleGoBack}
+						/>
+					</Center>
+				</VStack>
+			</ScrollView>
+		</VStack>
 	);
 }
