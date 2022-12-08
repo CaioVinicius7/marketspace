@@ -29,15 +29,17 @@ export function SignIn() {
 						<LogoWithSloganSvg />
 					</Center>
 
-					<Center>
-						<Text color="gray.600"> Acesse sua conta </Text>
+					<VStack space={4}>
+						<Text color="gray.600" textAlign="center">
+							Acesse sua conta
+						</Text>
 
-						<Input mt={4} placeholder="E-mail" keyboardType="email-address" />
+						<Input placeholder="E-mail" keyboardType="email-address" />
 
-						<Input mt={4} placeholder="Senha" passwordInput />
+						<Input placeholder="Senha" passwordInput />
 
-						<Button title="Entrar" mt={8} />
-					</Center>
+						<Button title="Entrar" mt={4} />
+					</VStack>
 				</VStack>
 
 				<Center mt={12} pb={6} px={12}>

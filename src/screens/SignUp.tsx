@@ -94,7 +94,7 @@ export function SignUp() {
 						</Text>
 					</Center>
 
-					<Center mt={6}>
+					<VStack mt={6} space={6}>
 						<Avatar
 							source={userPhoto ? { uri: userPhoto } : defaultUserPhotoImage}
 							size={PHOTO_SIZE}
@@ -102,14 +102,14 @@ export function SignUp() {
 							editAvatar
 						/>
 
-						<Input placeholder="Nome" mt={6} />
-						<Input placeholder="E-mail" keyboardType="email-address" mt={6} />
-						<Input placeholder="Telefone" keyboardType="phone-pad" mt={6} />
-						<Input placeholder="Senha" passwordInput mt={6} />
-						<Input placeholder="Confirmar senha" passwordInput mt={6} />
+						<Input placeholder="Nome" />
+						<Input placeholder="E-mail" keyboardType="email-address" />
+						<Input placeholder="Telefone" keyboardType="phone-pad" />
+						<Input placeholder="Senha" passwordInput />
+						<Input placeholder="Confirmar senha" passwordInput />
 
-						<Button title="Criar" variant="tertiary" mt={6} />
-					</Center>
+						<Button title="Criar" variant="tertiary" />
+					</VStack>
 
 					<Center mt={12}>
 						<Text>Já tem uma conta?</Text>
