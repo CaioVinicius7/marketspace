@@ -1,18 +1,26 @@
 import {
 	Button as NativeBaseButton,
+	Divider,
 	Heading,
 	HStack,
 	Icon,
+	Pressable,
 	Text,
 	useTheme,
 	VStack
 } from "native-base";
 import { useNavigation } from "@react-navigation/native";
-import { ArrowRight, Tag } from "phosphor-react-native";
+import {
+	ArrowRight,
+	MagnifyingGlass,
+	Sliders,
+	Tag
+} from "phosphor-react-native";
 
 import { AppNavigatorRoutesProps } from "@routes/app.routes";
 
 import { HomeHeader } from "@components/HomeHeader";
+import { Input } from "@components/Input";
 
 export function Home() {
 	const { colors } = useTheme();
@@ -70,6 +78,26 @@ export function Home() {
 						</Text>
 					</NativeBaseButton>
 				</HStack>
+			</VStack>
+
+			<VStack>
+				<Text color="gray.500">Compre produtos variados</Text>
+
+				<Input
+					placeholder="Buscar anúncio"
+					mt={3}
+					InputRightElement={
+						<HStack pr={4}>
+							<Pressable onPress={() => console.log("Search")}>
+								<MagnifyingGlass size={20} />
+							</Pressable>
+							<Divider orientation="vertical" h={5} bg="gray.400" mx={3} />
+							<Pressable onPress={() => console.log("Filter")}>
+								<Sliders size={20} />
+							</Pressable>
+						</HStack>
+					}
+				/>
 			</VStack>
 		</VStack>
 	);
