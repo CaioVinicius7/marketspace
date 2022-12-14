@@ -32,7 +32,7 @@ export function ProductCard({
 	}
 
 	return (
-		<Pressable w="1/2" onPress={handleOnPress}>
+		<Pressable w="47.5%" pt={6} onPress={handleOnPress}>
 			<VStack>
 				<Image
 					source={{
