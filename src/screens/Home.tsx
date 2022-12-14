@@ -5,7 +5,6 @@ import {
 	Heading,
 	HStack,
 	Icon,
-	Image,
 	Pressable,
 	Text,
 	useTheme,
@@ -35,10 +34,10 @@ export function Home() {
 	}
 
 	return (
-		<VStack flex={1} pt={4} px={6} safeArea>
+		<VStack flex={1} pt={4} px={6} space={8} safeArea>
 			<HomeHeader />
 
-			<VStack mt={8}>
+			<VStack>
 				<Text color="gray.500">Seus produtos anunciados para venda</Text>
 
 				<HStack
@@ -83,7 +82,7 @@ export function Home() {
 				</HStack>
 			</VStack>
 
-			<VStack mt={8}>
+			<VStack>
 				<Text color="gray.500">Compre produtos variados</Text>
 
 				<Input
@@ -120,6 +119,7 @@ export function Home() {
 				columnWrapperStyle={{
 					justifyContent: "space-between"
 				}}
+				ItemSeparatorComponent={() => <Divider opacity={0} h={6} />}
 				contentContainerStyle={{
 					paddingBottom: 64
 				}}
