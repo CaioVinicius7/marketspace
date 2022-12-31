@@ -115,6 +115,7 @@ export function Home() {
 					showsVerticalScrollIndicator={false}
 					renderItem={({ item }) => (
 						<ProductCard
+							isDisabled={item === "1"}
 							title="Tênis bege"
 							value="59,90"
 							status="used"

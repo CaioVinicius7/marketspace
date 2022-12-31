@@ -9,6 +9,7 @@ import {
 } from "native-base";
 
 import { Avatar } from "./Avatar";
+import { EmptyBox } from "./EmptyBox";
 
 interface ProductCardProps {
 	title: string;
@@ -16,6 +17,8 @@ interface ProductCardProps {
 	status: "used" | "new";
 	productImg: string;
 	vendorImg: string;
+	showVendor?: boolean;
+	isDisabled?: boolean;
 }
 
 export function ProductCard({
@@ -23,9 +26,11 @@ export function ProductCard({
 	value,
 	status,
 	productImg,
-	vendorImg
+	vendorImg,
+	showVendor = true,
+	isDisabled = false
 }: ProductCardProps) {
-	const productIsNew = status == "new";
+	const productIsNew = status === "new";
 
 	function handleOnPress() {
 		console.log(`Selected the product ${title}`);
@@ -43,21 +48,42 @@ export function ProductCard({
 					w="full"
 					borderRadius="md"
 					resizeMode="cover"
+					opacity={isDisabled ? 0.8 : 1}
 				/>
 
+				{isDisabled && (
+					<Text
+						color="gray.100"
+						fontFamily="heading"
+						fontSize="xs"
+						textTransform="uppercase"
+						position="absolute"
+						mt="75px"
+						ml={2}
+						opacity={1}
+					>
+						Anúncio desativado
+					</Text>
+				)}
+
 				<HStack position="absolute" w="full" justifyContent="space-between">
-					<Avatar
-						size={6}
-						source={{
-							uri: vendorImg
-						}}
-						borderColor="gray.100"
-						borderWidth="1"
-						top={-4}
-						left={-4}
-					/>
+					{showVendor ? (
+						<Avatar
+							size={6}
+							source={{
+								uri: vendorImg
+							}}
+							borderColor="gray.100"
+							borderWidth="1"
+							top={-4}
+							left={-4}
+						/>
+					) : (
+						<EmptyBox />
+					)}
 
 					<Tag
+						opacity={isDisabled ? 0.8 : 1}
 						bgColor={productIsNew ? "blue.600" : "gray.600"}
 						borderRadius="full"
 						h={4}
@@ -77,16 +103,21 @@ export function ProductCard({
 					</Tag>
 				</HStack>
 
-				<Text color="gray.600" lineHeight="2xl">
+				<Text color={isDisabled ? "gray.400" : "gray.700"} lineHeight="2xl">
 					{title}
 				</Text>
 
 				<HStack alignItems="baseline">
-					<Heading color="gray.700" fontSize="xs">
+					<Heading color={isDisabled ? "gray.400" : "gray.700"} fontSize="xs">
 						R$
 					</Heading>
 
-					<Heading color="gray.700" fontSize="md" lineHeight="xs" pl={0.5}>
+					<Heading
+						color={isDisabled ? "gray.400" : "gray.700"}
+						fontSize="md"
+						lineHeight="xs"
+						pl={0.5}
+					>
 						{value}
 					</Heading>
 				</HStack>
