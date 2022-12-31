@@ -1,4 +1,4 @@
-import { useMemo, useRef, Dispatch, SetStateAction } from "react";
+import { useMemo, useRef } from "react";
 import {
 	Checkbox,
 	Heading,
@@ -8,23 +8,24 @@ import {
 	Tag,
 	Text,
 	useTheme,
-	VStack
+	VStack,
+	Pressable
 } from "native-base";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { X } from "phosphor-react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Button } from "./Button";
 import { ScrollView } from "react-native-gesture-handler";
-import { Pressable } from "react-native";
+
+import { Button } from "@components/Button";
 
 interface FilterBottomSheetProps {
 	isOpen: boolean;
-	setIsOpen: Dispatch<SetStateAction<boolean>>;
+	changeFilterOptionsVisibility: () => void;
 }
 
 export function FilterBottomSheet({
 	isOpen,
-	setIsOpen
+	changeFilterOptionsVisibility
 }: FilterBottomSheetProps) {
 	const { colors } = useTheme();
 
@@ -43,7 +44,7 @@ export function FilterBottomSheet({
 				<HStack alignItems="center" justifyContent="space-between">
 					<Heading fontSize="xl">Filtrar anúncios</Heading>
 
-					<Pressable onPress={() => setIsOpen(false)}>
+					<Pressable onPress={changeFilterOptionsVisibility}>
 						<X size={24} color={colors.gray[400]} />
 					</Pressable>
 				</HStack>

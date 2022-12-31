@@ -1,12 +1,12 @@
 import { Heading, HStack, Icon, Text, useTheme, VStack } from "native-base";
 import { Plus } from "phosphor-react-native";
 
-import { Avatar } from "./Avatar";
-import { Button } from "./Button";
+import { Avatar } from "@components/Avatar";
+import { Button } from "@components/Button";
 
 import defaultUserPhotoImage from "@assets/userPhotoDefault.png";
 
-export function HomeHeader() {
+export function Header() {
 	const userPhoto = "https://github.com/caiovinicius7.png";
 
 	const { colors } = useTheme();
