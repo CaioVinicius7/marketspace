@@ -24,8 +24,8 @@ import { AppNavigatorRoutesProps } from "@routes/app.routes";
 
 import { HomeHeader } from "@components/HomeHeader";
 import { Input } from "@components/Input";
-import { ProductCard } from "@components/ProductCard";
 import { FilterBottomSheet } from "@components/FilterBottomSheet";
+import { ProductCard } from "@components/ProductCard";
 
 export function Home() {
 	const [filterOptionsIsOpen, setFilterOptionsIsOpen] = useState(false);
@@ -115,7 +115,6 @@ export function Home() {
 					showsVerticalScrollIndicator={false}
 					renderItem={({ item }) => (
 						<ProductCard
-							isDisabled={item === "1"}
 							title="Tênis bege"
 							value="59,90"
 							status="used"
